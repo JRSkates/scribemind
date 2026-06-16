@@ -6,7 +6,7 @@ The goal is to let users upload files, process and index their content, and then
 ## Tech Stack
 
 - Frontend: React + TypeScript + Vite
-- Backend: Python + FastAPI
+- Backend: Python + FastAPI + CORS
 - Planned AI/RAG stack: OpenAI, ChromaDB, Hugging Face embeddings
 
 ## Current Status
