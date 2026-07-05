@@ -17,7 +17,7 @@ async def upload_document(file: UploadFile = File(...)):
             success=True,
             message=f"File '{file.filename}' uploaded successfully."
         )
-        return JSONResponse(status_code=200, content=response.dict())
+        return JSONResponse(status_code=200, content=response.model_dump())
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -75,6 +75,24 @@ npm run build
 
 - Backend currently runs directly via Uvicorn for development.
 
+## Test Commands
+
+From the repo root, run tests with the following commands.
+
+- Frontend tests (Vitest):
+
+```bash
+cd frontend
+npm run test
+```
+
+- Backend tests (pytest):
+
+```bash
+cd backend
+venv/bin/python -m pytest -q
+```
+
 ## Notes
 
 - CORS is configured in the backend to allow requests from `http://localhost:5173`.
