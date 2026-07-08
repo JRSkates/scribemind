@@ -70,6 +70,12 @@ Frontend will be available at:
 
 ```bash
 cd frontend
+npm run dev
+```
+
+- To make the build:
+
+```bash
 npm run build
 ```
 
