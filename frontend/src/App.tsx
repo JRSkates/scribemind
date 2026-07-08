@@ -22,7 +22,8 @@ function App() {
         const data: HealthResponse = await response.json();
         setApiStatus(data.status);
       } catch (error) {
-        setApiStatus("API unavailable");
+        console.log(error);
+        setApiStatus("API unavailable");  ;
       }
     }
 
@@ -57,8 +58,8 @@ function App() {
             className="upload-form"
           onSubmit={async (e) => {
             e.preventDefault();
-            const formData = new FormData(e.currentTarget);
-            const response = await fetch("http://localhost:8000/api/upload", {
+            const formData: FormData = new FormData(e.currentTarget);
+            const response: Response = await fetch("http://localhost:8000/api/upload", {
               method: "POST",
               body: formData,
             });
