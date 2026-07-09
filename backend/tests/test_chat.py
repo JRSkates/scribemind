@@ -7,7 +7,7 @@ client = TestClient(app)
 
 
 def test_question_endpoint_returns_success() -> None:
-    response = client.post('/api/chat/question', data={'question': 'What is SSE?'})
+    response = client.post('/api/chat/question', json={'message': 'What is SSE?'})
 
     assert response.status_code == 200
     assert response.json() == {

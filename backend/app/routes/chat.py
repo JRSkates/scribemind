@@ -2,6 +2,7 @@ import asyncio
 from datetime import datetime
 
 from fastapi import APIRouter, Query, Request
+from app.models import ChatRequest
 from fastapi.responses import StreamingResponse
 
 router = APIRouter(prefix="/api/chat", tags=["Chat"])
@@ -30,7 +31,7 @@ async def sse_chat(request: Request, max_events: int | None = Query(default=None
     return StreamingResponse(event_generator(), media_type="text/event-stream")
 
 @router.post("/question")
-async def send_question(request: Request):
+async def send_question(request: ChatRequest):
     # Here you would typically process the incoming question
     # For demonstration, we will just return a success response
     return {"success": True, "message": "Question received successfully."}

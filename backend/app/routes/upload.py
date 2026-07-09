@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import JSONResponse
-from app.models import UploadDocumentResponse, UploadDocumentRequest
+from app.models import UploadDocumentResponse #UploadDocumentRequest
 
 router = APIRouter(prefix="/api/upload", tags=["Upload"])
 
@@ -9,7 +9,7 @@ async def upload_document(file: UploadFile = File(...)):
     try:
         # Read the file content
         file_content = await file.read()
-        
+        print(file_content)  # For demonstration, you might want to log the content or its size
         # Here you would typically save the file to a database or storage
         # For demonstration, we will just return a success response
         

@@ -28,7 +28,10 @@ describe('SendQuestionCard', () => {
     const [url, options] = fetchSpy.mock.calls[0]
     expect(url).toBe('http://localhost:8000/api/chat/question')
     expect(options?.method).toBe('POST')
-    expect(options?.body).toBeInstanceOf(FormData)
+    expect(options?.headers).toEqual({
+      'Content-Type': 'application/json',
+    })
+    expect(options?.body).toBe(JSON.stringify({ message: 'What is SSE?' }))
     expect(alertSpy).toHaveBeenCalledWith('Question sent successfully!')
   })
 
