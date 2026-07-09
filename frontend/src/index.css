@@ -167,13 +167,87 @@ h2 {
   transform: translateY(0);
 }
 
+.question-form {
+  margin-top: 0.85rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.question-input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  color: #0f172a;
+  font: inherit;
+  padding: 0.7rem 0.85rem;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.question-input::placeholder {
+  color: #94a3b8;
+}
+
+.question-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.16);
+  background: #ffffff;
+}
+
+.send-button,
+.chat-button {
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 160ms ease, filter 120ms ease;
+}
+
+.send-button {
+  min-height: 44px;
+  padding: 0.62rem 1rem;
+  background: linear-gradient(135deg, #0ea5a4, #0284c7);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.24);
+}
+
+.send-button:hover,
+.chat-button:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.04);
+}
+
+.send-button:active,
+.chat-button:active {
+  transform: translateY(0);
+}
+
+.chat-button {
+  margin-top: 0.75rem;
+  min-height: 42px;
+  padding: 0.6rem 0.95rem;
+  background: linear-gradient(135deg, #0369a1, #1d4ed8);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.26);
+}
+
 @media (max-width: 640px) {
   .status-card {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .upload-button {
+  .upload-button,
+  .chat-button,
+  .send-button {
     width: 100%;
+  }
+
+  .question-form {
+    grid-template-columns: 1fr;
   }
 }

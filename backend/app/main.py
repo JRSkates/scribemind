@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.upload import router as upload_router
+from app.routes.chat import router as chat_router
 
 app = FastAPI(title="ScribeMind API")
 
@@ -13,7 +14,9 @@ app.add_middleware(
 )
 
 app.include_router(upload_router)
+app.include_router(chat_router)
 
 @app.get("/api/health")
 def health_check():
     return {"status": "healthy"}
+

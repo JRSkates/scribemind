@@ -20,9 +20,11 @@ The goal is to let users upload files, process and index their content, and then
 ```text
 scribemind/
 	backend/
+		venv/
 		app/
 			main.py
 		requirements.txt
+		requirements-dev.txt
 	frontend/
 		src/
 		package.json
@@ -42,7 +44,15 @@ cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+pip install -r requirements-dev.txt
 uvicorn app.main:app --reload --port 8000
+```
+
+Then each time you want to enter env/leave:
+
+```bash
+source venv/bin/activate
+deactivate
 ```
 
 Backend will be available at:
@@ -66,16 +76,17 @@ Frontend will be available at:
 
 ## Build Commands
 
-- Frontend production build:
+- Frontend development server:
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-- To make the build:
+- Frontend production build:
 
 ```bash
+cd frontend
 npm run build
 ```
 
@@ -96,10 +107,12 @@ npm run test
 
 ```bash
 cd backend
-venv/bin/python -m pytest -q
+source venv/bin/activate
+python -m pytest -q tests
 ```
 
 ## Notes
 
+- Use a single Python virtual environment in `backend/venv`.
 - CORS is configured in the backend to allow requests from `http://localhost:5173`.
 - Keep backend and frontend running in separate terminals during development.
